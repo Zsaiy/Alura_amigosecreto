@@ -55,9 +55,11 @@ function sortearAmigo(){
         alert("La lista de amigos se encuentra vacia.")
     }
     else{
+
         let resultado = document.getElementById('resultado');
         let indiceGanador=Sorteo();
-        resultado.textContent="El elegido es: "+lista[indiceGanador].textContent;
+        //resultado.textContent="El elegido es: "+lista[indiceGanador].textContent;
+        resultado.innerHTML=("El elegido es: "+lista[indiceGanador].textContent);
     }
 }
 

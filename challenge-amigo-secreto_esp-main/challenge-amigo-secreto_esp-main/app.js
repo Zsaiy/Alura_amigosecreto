@@ -4,13 +4,16 @@
 
 let amigos=[];
 
-function asignar_nombre(){
+function limpiar_casilla(){
+    let casilla = document.querySelector('#amigo');
+    casilla.value='';
+}
+
+function asignar_nombre(nombre){
     let lista = document.getElementById('listaAmigos');
-    amigos.forEach(item=>{
-        let li = document.createElement('li');
-        li.textContent = item;
-        lista.append(li);
-    })
+    let li = document.createElement('li');
+    li.textContent = nombre;
+    lista.append(li);
 }
 
 function agregarAmigo(){
@@ -19,8 +22,14 @@ function agregarAmigo(){
     if (nombre==''){
         alert("Por favor, inserte un nombre.")
     }
+    else if(amigos.includes(nombre)){
+        alert("El nombre ya se encuentra en la lista, por favor intente nuevamente.")
+    }
     else{
         amigos.push(nombre);
-        asignar_nombre();
+        asignar_nombre(nombre);
+        limpiar_casilla();
     }
 }
+
+
